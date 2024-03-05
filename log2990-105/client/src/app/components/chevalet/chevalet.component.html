@@ -1,0 +1,18 @@
+<button mat-flat-button color="primary" *ngIf="isContainSelectedCard" (click)="exchange()">
+    <mat-icon>swap_horiz</mat-icon>
+</button>
+
+<button mat-flat-button color="warn" *ngIf="isContainSelectedCard" (click)="resetExchange()">
+    <mat-icon>clear</mat-icon>
+</button>
+
+<mat-card
+    class="letters"
+    *ngFor="let letter of this.playerHand; index as i"
+    id="{{ 'letter' + i }}"
+    (click)="updateActiveLetter(i)"
+    (contextmenu)="onRightClick($event, letter, i)"
+    [ngStyle]="{ 'border-style': isClicked[i] ? 'dashed' : 'solid', color: activeLetter[i] ? 'red' : 'black' }"
+>
+    {{ letter }}
+</mat-card>

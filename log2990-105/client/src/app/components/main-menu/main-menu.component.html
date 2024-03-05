@@ -1,0 +1,19 @@
+<mat-card class="menu-card center mat-elevation-z2">
+    <div class="title-container">
+        <h1 class="title">
+            {{ getTitle() }}
+        </h1>
+    </div>
+
+    <div class="stretch-column">
+        <ng-template ngFor let-button [ngForOf]="getButtons()">
+            <button mat-raised-button *ngIf="button.name !== 'Back'; else backButton" (click)="buttonClick.emit(button.name)">
+                {{ button.text }}
+            </button>
+
+            <ng-template #backButton>
+                <button mat-button (click)="buttonClick.emit('Back')">Retour</button>
+            </ng-template>
+        </ng-template>
+    </div>
+</mat-card>

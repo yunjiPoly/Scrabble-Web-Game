@@ -1,0 +1,6 @@
+<span class='input-row'>
+    <input autofocus [(ngModel)]="message" (keydown.enter)="sendMessage()" />
+    <button mat-mini-fab color="primary" (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+    </button>
+</span>

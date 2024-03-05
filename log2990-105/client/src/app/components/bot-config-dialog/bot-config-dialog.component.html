@@ -1,0 +1,32 @@
+<div class="dialog">
+    <h1 mat-dialog-title class="title">{{ title }}</h1>
+
+    <div mat-dialog-content>
+        <form [formGroup]="formGroup" *ngIf="data.action !== 'delete'">
+            <mat-form-field appearance="standard">
+                <mat-label>
+                    {{ label }}
+                </mat-label>
+                <input matInput formControlName="name" />
+                <mat-hint>
+                    {{ hint }}
+                </mat-hint>
+                <mat-error *ngIf="field.invalid">
+                    {{ error }}
+                </mat-error>
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div mat-dialog-actions class="button-row" [ngStyle]="data.action === 'delete' ? { marginTop: '36px' } : {}">
+        <button mat-button (click)="dialogRef.close(confirm(false))">Annuler</button>
+        <button
+            mat-raised-button
+            [color]="data.action === 'delete' ? 'warn' : 'primary'"
+            [disabled]="data.action === 'delete' ? false : field.invalid"
+            (click)="dialogRef.close(confirm(true))"
+        >
+            {{ action }}
+        </button>
+    </div>
+</div>

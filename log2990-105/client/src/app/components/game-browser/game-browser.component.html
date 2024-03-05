@@ -1,0 +1,50 @@
+<mat-card class="menu-card center mat-elevation-z2">
+    <div class="title-container center">
+        <h1 class="title">{{ getTitle() }}</h1>
+        <h2 class="subtitle">Parties en attente</h2>
+    </div>
+
+    <div class="table-container">
+        <table mat-table [dataSource]="tableData">
+            <!-- Username Column -->
+            <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef>Nom du joueur</th>
+                <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+            </ng-container>
+
+            <!-- Turn Length Column -->
+            <ng-container matColumnDef="turnLength">
+                <th mat-header-cell *matHeaderCellDef>Temps de tour</th>
+                <td mat-cell *matCellDef="let element">{{ formatTime(element.turnLength) }}</td>
+            </ng-container>
+
+            <!-- Randomization Column -->
+            <ng-container matColumnDef="randomized">
+                <th mat-header-cell *matHeaderCellDef>Bonus aléatoire</th>
+                <td mat-cell *matCellDef="let element">{{ element.randomized ? 'Oui' : 'Non' }}</td>
+            </ng-container>
+
+            <!-- Hidden Column -->
+            <ng-container matColumnDef="roomID">
+                <th mat-header-cell *matHeaderCellDef hidden></th>
+                <td mat-cell *matCellDef="let element" hidden></td>
+            </ng-container>
+
+            <!-- Row definition -->
+            <tr mat-header-row *matHeaderRowDef="tableColumns; sticky: true" class="table-header-row"></tr>
+            <tr mat-row *matRowDef="let row; columns: tableColumns" (click)="selectRoom(row)" class="table-row"></tr>
+
+            <!-- Row shown when there is no data -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell unavailable" colspan="4">Il n'y a pas de parties disponibles</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="button-row">
+        <button mat-button (click)="this.buttonClick.emit('Back')">Retour</button>
+        <button mat-raised-button *ngIf="tableData.data.length > 0" [disabled]="tableData.data.length <= 1" color="primary" (click)="selectRoom()">
+            Placement aléatoire
+        </button>
+    </div>
+</mat-card>

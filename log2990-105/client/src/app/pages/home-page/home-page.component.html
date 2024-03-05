@@ -1,0 +1,49 @@
+<body>
+    <div class="container">
+        <button mat-icon-button class="options" [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <div class="content center justify">
+            <app-main-menu
+                *ngIf="showMenu() === 'Main'"
+                [gameMode]="gameMode"
+                [gameType]="gameType"
+                (buttonClick)="handleClick($event)"
+            ></app-main-menu>
+
+            <app-new-game-menu
+                *ngIf="showMenu() === 'NewGame'"
+                [gameMode]="gameMode"
+                [gameType]="gameType"
+                [dictionaries]="dictionaries"
+                (buttonClick)="handleClick($event)"
+                (newGame)="createGame($event)"
+            ></app-new-game-menu>
+
+            <app-scoreboard *ngIf="showMenu() === 'Scoreboard'" (buttonClick)="handleClick($event)"></app-scoreboard>
+
+            <app-game-browser
+                *ngIf="showMenu() === 'Browser'"
+                [gameMode]="gameMode"
+                [gameList]="roomList"
+                (buttonClick)="handleClick($event)"
+                (joinRoom)="joinGame($event)"
+            ></app-game-browser>
+
+            <app-waiting-room
+                *ngIf="showMenu() === 'WaitingRoom'"
+                [configs]="gameConfigs"
+                (buttonClick)="handleClick($event)"
+                (convertGame)="convertGame($event)"
+            ></app-waiting-room>
+        </div>
+    </div>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="showAdminPage()">
+            <mat-icon>admin_panel_settings</mat-icon>
+            <span>Page d'administration</span>
+        </button>
+    </mat-menu>
+</body>

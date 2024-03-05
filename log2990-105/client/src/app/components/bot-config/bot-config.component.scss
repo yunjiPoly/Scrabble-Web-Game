@@ -1,0 +1,21 @@
+.container {
+    align-items: end;
+}
+
+.mat-column-select {
+    width: 12.5%;
+}
+
+.mat-column-actions {
+    width: 12.5%;
+}
+
+.mat-cell.mat-column-details {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.table-container {
+    flex-direction: column-reverse;
+    justify-content: start;
+}

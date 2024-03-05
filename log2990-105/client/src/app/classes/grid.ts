@@ -1,0 +1,11 @@
+export const DEFAULT_WIDTH = 600;
+export const DEFAULT_HEIGHT = 600;
+export const DEFAULT_NB_CASES = 16;
+export const STROKE_RANGE = 4;
+export const SCALE_MAX = 1.5;
+export const SCALE_MIN = 0.8;
+export const TEXT_DEFAULT_PX = 20;
+export const ARROW_POSITION1 = 16;
+export const ARROW_POSITION2 = 19;
+export const ARROW_POSITION3 = 22;
+export const ARROW_POSITION5 = 14;

@@ -1,0 +1,113 @@
+.title {
+    text-align: center;
+}
+.subtitle {
+    font-weight: lighter;
+    text-align: center;
+}
+.title-container {
+    margin-bottom: 30px;
+}
+
+mat-label {
+    font-size: 15pt;
+    font-weight: lighter;
+}
+mat-form-field.mat-form-field {
+    font-size: 15pt;
+    margin-bottom: 20px;
+    padding-top: 0;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.justify {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    height: 100vh;
+}
+.stretch-column {
+    min-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.menu-card {
+    button {
+        width: 100%;
+        font-size: 18pt;
+        font-weight: normal;
+        padding: 10px 30px 10px 30px;
+        margin: 20px 0 0 0;
+    }
+    .title {
+        font-size: 36pt;
+    }
+    .subtitle {
+        font-size: 24pt;
+    }
+    flex-direction: column;
+    padding: 60px 60px 60px 60px;
+}
+
+.dialog {
+    button {
+        font-size: 15pt;
+        padding: 10px 20px 10px 20px;
+    }
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .title {
+        font-size: 24pt;
+        margin-bottom: 2px;
+    }
+    .subtitle {
+        font-size: 15pt;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+    padding: 10px 20px 30px 20px;
+}
+
+.button-row {
+    :first-child {
+        margin-left: 0;
+    }
+    button {
+        width: auto;
+        margin-left: 20px;
+        flex: 1 1 auto;
+    }
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.table-container {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+th {
+    font-size: 10pt;
+}
+
+td {
+    font-size: 12pt;
+}

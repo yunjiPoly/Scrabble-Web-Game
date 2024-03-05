@@ -1,0 +1,20 @@
+<div class="dialog">
+    <h1 mat-dialog-title class="title">Convertir en partie solo</h1>
+
+    <div mat-dialog-content>
+        <form [formGroup]="form">
+            <mat-form-field appearance="standard">
+                <mat-label>Profil de l'adversaire</mat-label>
+                <mat-select formControlName="difficulty">
+                    <mat-option [value]="difficulties.Easy">Novice</mat-option>
+                    <mat-option [value]="difficulties.Hard">Expert</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div mat-dialog-actions class="button-row">
+        <button mat-button (click)="dialogRef.close()">Annuler</button>
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="dialogRef.close(this.form.value)">Jouer</button>
+    </div>
+</div>

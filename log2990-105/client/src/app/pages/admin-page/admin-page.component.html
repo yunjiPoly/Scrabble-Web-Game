@@ -1,0 +1,63 @@
+<div class="container stretch-col">
+    <mat-toolbar color="primary">
+        <span>PAGE D'ADMINISTRATION</span>
+        <button mat-icon-button class="menu-button" [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <mat-drawer-container class="stretch-col stretch-col-content">
+        <mat-drawer opened mode="side" class="mat-elevation-z1">
+            <mat-action-list>
+                <mat-list-item [disabled]="page === 'dict'" (click)="page = 'dict'">
+                    <mat-icon mat-list-icon>spellcheck</mat-icon>
+                    <h3 mat-line>Dictionnaires</h3>
+                </mat-list-item>
+                <mat-list-item [disabled]="page === 'bot'" (click)="page = 'bot'">
+                    <mat-icon mat-list-icon>psychology</mat-icon>
+                    <h3 mat-line>Joueurs virtuels</h3>
+                </mat-list-item>
+            </mat-action-list>
+        </mat-drawer>
+
+        <mat-drawer-content class="stretch-col stretch-col-content content">
+            <mat-card class="stretch-col stretch-col-content content">
+                <app-bot-config
+                    class="stretch-col stretch-col-content"
+                    *ngIf="page === 'bot'"
+                    [data]="botData"
+                    [(difficulty)]="botDifficulty"
+                    (difficultyChange)="getBots()"
+                    (get)="getBots()"
+                    (add)="addBot($event)"
+                    (delete)="deleteBots($event)"
+                    (edit)="editBot($event)"
+                ></app-bot-config>
+                <app-dict-config
+                    class="stretch-col stretch-col-content"
+                    *ngIf="page === 'dict'"
+                    [data]="dictData"
+                    (get)="getDicts()"
+                    (add)="upload.click()"
+                    (delete)="deleteDicts($event)"
+                    (edit)="editDict($event)"
+                    (download)="downloadDict($event)"
+                ></app-dict-config>
+            </mat-card>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item class="reset" (click)="openResetDialog()">
+        <mat-icon mat-list-icon>restore</mat-icon>
+        <span>Réinitialiser le système</span>
+    </button>
+    <button mat-menu-item (click)="showHomePage()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Retourner à l'accueil</span>
+    </button>
+</mat-menu>
+
+<a hidden #download></a>
+<input type="file" accept="application/json" hidden #upload (change)="handleFile(); upload.value = ''" />

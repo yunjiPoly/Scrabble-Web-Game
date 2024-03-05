@@ -1,0 +1,71 @@
+@use '~@angular/material' as mat;
+@use '../../styles' as styles;
+
+.content {
+    padding: 48px;
+}
+
+mat-drawer-container {
+    width: 100%;
+}
+
+mat-drawer {
+    min-width: 15%;
+}
+
+mat-list-item {
+    margin-right: 10px;
+}
+
+mat-toolbar {
+    justify-content: space-between;
+}
+
+.menu-button {
+    margin: 8px 0;
+}
+
+.reset > * {
+    color: mat.get-color-from-palette(mat.$red-palette, 500);
+}
+
+.stretch-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.stretch-col-content {
+    flex-grow: 1;
+}
+
+.table-actions {
+    button {
+        &:first-child {
+            margin-left: 0;
+        }
+        mat-icon {
+            margin-left: -5px;
+            margin-right: 5px;
+        }
+        font-size: 15pt;
+        margin-left: 16px;
+        padding: 4px 16px 4px 16px;
+    }
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 24pt;
+    font-weight: 500;
+    text-align: start;
+    margin-bottom: 0;
+}
+
+.title-container {
+    margin-bottom: 48px;
+}

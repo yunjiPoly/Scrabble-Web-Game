@@ -1,0 +1,17 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav mode="side" opened disableClose="true" class='panel'>
+        <div class='objectives'>
+            <app-objectives></app-objectives>
+            <div>
+                <app-textbox></app-textbox>
+                <app-inputbar></app-inputbar>
+            </div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content class='play-area-container'>
+        <app-play-area class="play-area" tabindex="0"></app-play-area>
+    </mat-sidenav-content>
+    <mat-sidenav mode="side" position='end' opened disableClose="true" class='panel'>
+        <app-panneau-info></app-panneau-info>
+    </mat-sidenav>
+</mat-sidenav-container>

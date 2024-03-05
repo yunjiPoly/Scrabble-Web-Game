@@ -1,0 +1,27 @@
+<div *ngIf="isVisible">
+    <mat-expansion-panel *ngFor="let objective of this.publicObj" [expanded]="!objective[1]" [disabled]="objective[1]">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-icon *ngIf='objective[1]'>check_circle</mat-icon>
+                <span>{{ obtainObjDescription(objective[0])[0] }}</span>
+            </mat-panel-title>
+            <mat-panel-description>
+                <span *ngIf='!objective[1]'>{{ obtainObjDescription(objective[0])[1] }}</span>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{ obtainObjDescription(objective[0])[2] }}</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel id="privateObj" [expanded]="!privateObj[1]" [disabled]="privateObj[1]">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-icon *ngIf='privateObj[1]'>check_circle</mat-icon>
+                <span>{{ obtainObjDescription(privateObj[0])[0] }}</span>
+            </mat-panel-title>
+            <mat-panel-description>
+                <span *ngIf='!privateObj[1]'>{{ obtainObjDescription(privateObj[0])[1] }}</span>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{ obtainObjDescription(privateObj[0])[2] }}</p>
+    </mat-expansion-panel>
+</div>

@@ -1,0 +1,24 @@
+.edit.dialog {
+    padding: 24px 24px 40px 24px;
+}
+
+.edit {
+    form {
+        min-width: 400px;
+        margin-top: 48px;
+        margin-bottom: 18px;
+    }
+
+    mat-form-field.mat-form-field {
+        margin-bottom: 12px;
+    }
+
+    .title {
+        font-size: 30pt !important;
+    }
+}
+
+.edit .input-row button {
+    padding: 12px 24px 12px 24px;
+    font-size: 16.5pt;
+}

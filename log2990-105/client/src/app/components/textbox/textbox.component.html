@@ -1,0 +1,5 @@
+<div class="textbox" id="thread">
+    <div *ngFor="let message of messages; index as index" [ngClass]="message.type" [id]="'message-' + index">
+        {{ getMessage(message) }}
+    </div>
+</div>

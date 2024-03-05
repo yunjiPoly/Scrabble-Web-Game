@@ -1,0 +1,8 @@
+<div class="dialog">
+    <h1 class="title">{{ data.title }}</h1>
+
+    <div mat-dialog-actions class="button-row">
+        <button mat-button class="dialog-button" (click)="dialogRef.close(false)">{{ data.cancel }}</button>
+        <button mat-raised-button class="dialog-button" color="warn" (click)="dialogRef.close(true)">{{ data.action }}</button>
+    </div>
+</div>

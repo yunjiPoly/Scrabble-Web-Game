@@ -1,0 +1,65 @@
+<mat-card class="menu-card center mat-elevation-z2">
+    <div class="title-container center">
+        <h1 class="title">
+            {{ getTitle() }}
+        </h1>
+        <h2 class="subtitle">
+            {{ getSubTitle() }}
+        </h2>
+    </div>
+
+    <form [formGroup]="form" class="stretch-column">
+        <mat-form-field appearance="standard">
+            <mat-label>Nom du joueur</mat-label>
+            <input matInput formControlName="username" />
+            <mat-hint>
+                {{ getNameHint() }}
+            </mat-hint>
+            <mat-error *ngIf="username.invalid">
+                {{ getNameError() }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Dictionnaire utilisé</mat-label>
+            <mat-select formControlName="dictionary" placeholder="Défaut">
+                <mat-option
+                    *ngFor="let dict of dictionaries"
+                    matTooltipPosition="right"
+                    matTooltipHideDelay="150"
+                    matTooltipShowDelay="150"
+                    [matTooltip]="dict.description"
+                    [value]="dict.id"
+                    >{{ dict.name }}</mat-option
+                >
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="gameType === gameTypes.Single">
+            <mat-label>Profil de l'adversaire</mat-label>
+            <mat-select formControlName="difficulty">
+                <mat-option [value]="difficulties.Easy">Novice</mat-option>
+                <mat-option [value]="difficulties.Hard">Expert</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+
+    <div class="stretch-column turn-select">
+        <div class="flex-row">
+            <mat-label> Temps de tour : </mat-label>
+            <mat-label>
+                {{ getTurnLabel() }}
+            </mat-label>
+        </div>
+        <mat-slider step="30" min="30" max="300" [value]="turnLength" (input)="setTurnLength($event.value)"> </mat-slider>
+
+        <div class="toggle-switch flex-row">
+            <mat-label>Bonus aléatoire</mat-label>
+            <mat-slide-toggle (change)="randomized = !randomized"></mat-slide-toggle>
+        </div>
+
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="createGame()">Jouer</button>
+
+        <button mat-button (click)="this.buttonClick.emit('Back')">Retour</button>
+    </div>
+</mat-card>

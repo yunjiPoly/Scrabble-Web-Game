@@ -1,0 +1,40 @@
+.container {
+    height: 100%;
+    display: flex;
+}
+
+.objectives {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.play-area-container {
+    overflow: auto;
+    flex: 1 1 auto;
+}
+
+.play-area {
+    display: grid;
+    width: min-content;
+    outline: none;
+}
+
+.panel {
+    padding: 6px;
+    min-width: 320px;
+    width: 20vw;
+    height: 100vh;
+}
+
+.stretch-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.stretch-col-content {
+    flex-grow: 1;
+}
